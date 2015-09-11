@@ -25,7 +25,7 @@ Clone the repo and run setup.py to install::
 Run
 ---
 
-Once installed, this package adds both 'apic_wiper' and 'wiper' to the bin directory for python install/virtual environment.
+Once installed, this package adds both `apic_wiper` and `wiper` to the bin directory for python install/virtual environment.
 
 Options for config arguments
 ----------------------------
