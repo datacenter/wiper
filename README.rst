@@ -23,77 +23,77 @@ CLI Options
 The only required CLI option is the CIMC IP address which is used to log into CIMC.  All other
 options can also be set via an INI file.  CLI options override the same option set in an INI file.
 
-Wiper has the following CLI options:
+Wiper has the following CLI options::
 
-    $ wiper -h
-    usage: Provision APICs via CIMC Serial Over LAN [-h] [-ap APIC_ADMIN_PASSWORD]
-                                                    [-b BD_MC_ADDRESSES]
-                                                    [-cna CONTROLLER_NAME]
-                                                    [-cnu CONTROLLER_NUMBER]
-                                                    [-cp CIMC_PASSWORD]
-                                                    [-cu CIMC_USERNAME]
-                                                    [-i INI_FILE]
-                                                    [-is {auto,10baseT/Half,10baseT/Full,100baseT/Half,100baseT/Full,1000baseT/Full}]
-                                                    [-iv INFRA_VLAN_ID]
-                                                    [-f FABRIC_NAME]
-                                                    [-nc NUMBER_OF_CONTROLLERS]
-                                                    [-od OOB_DEFAULT_GATEWAY]
-                                                    [-oi OOB_IP_ADDRESS] [-sim]
-                                                    [-sp {Y,n}]
-                                                    [-t TEP_ADDRESS_POOL] [-v]
-                                                    cimc_ip
+   $ wiper -h
+   usage: Provision APICs via CIMC Serial Over LAN [-h] [-ap APIC_ADMIN_PASSWORD]
+                                                   [-b BD_MC_ADDRESSES]
+                                                   [-cna CONTROLLER_NAME]
+                                                   [-cnu CONTROLLER_NUMBER]
+                                                   [-cp CIMC_PASSWORD]
+                                                   [-cu CIMC_USERNAME]
+                                                   [-i INI_FILE]
+                                                   [-is {auto,10baseT/Half,10baseT/Full,100baseT/Half,100baseT/Full,1000baseT/Full}]
+                                                   [-iv INFRA_VLAN_ID]
+                                                   [-f FABRIC_NAME]
+                                                   [-nc NUMBER_OF_CONTROLLERS]
+                                                   [-od OOB_DEFAULT_GATEWAY]
+                                                   [-oi OOB_IP_ADDRESS] [-sim]
+                                                   [-sp {Y,n}]
+                                                   [-t TEP_ADDRESS_POOL] [-v]
+                                                   cimc_ip
+    
+   positional arguments:
+       cimc_ip               CIMC hostname or IP address used to ssh to CIMC
 
-    positional arguments:
-      cimc_ip               CIMC hostname or IP address used to ssh to CIMC
-
-    optional arguments:
-      -h, --help            show this help message and exit
-      -ap APIC_ADMIN_PASSWORD, --apic_admin_password APIC_ADMIN_PASSWORD
-                            The APIC admin user password to enter into the APIC
-                            setup script.
-      -b BD_MC_ADDRESSES, --bd-mc-addresses BD_MC_ADDRESSES
-                            The Bridge Domain Multicast address range to enter
-                            into the APIC setup script.
-      -cna CONTROLLER_NAME, --controller-name CONTROLLER_NAME
-                            The controller name to enter into the APIC setup
-                            script.
-      -cnu CONTROLLER_NUMBER, --controller_number CONTROLLER_NUMBER
-                            The controller number (id) to enter into the APIC
-                            setup script.
-      -cp CIMC_PASSWORD, --cimc_password CIMC_PASSWORD
-                            CIMC password
-      -cu CIMC_USERNAME, --cimc_username CIMC_USERNAME
-                            CIMC username
-      -i INI_FILE, --ini-file INI_FILE
-                            Use an ini file to find parameters to provision an
-                            APIC.
-      -is {auto,10baseT/Half,10baseT/Full,100baseT/Half,100baseT/Full,1000baseT/Full}, --int-speed {auto,10baseT/Half,10baseT/Full,100baseT/Half,100baseT/Full,1000baseT/Full}
-      -iv INFRA_VLAN_ID, --infra-vlan-id INFRA_VLAN_ID
-                            The infra vlan id to enter into the APIC setup script.
-      -f FABRIC_NAME, --fabric-name FABRIC_NAME
-                            The fabric name to enter into the APIC setup script.
-      -nc NUMBER_OF_CONTROLLERS, --number-of-controllers NUMBER_OF_CONTROLLERS
-                            The number of controllers to enter into the APIC setup
-                            script.
-      -od OOB_DEFAULT_GATEWAY, --oob-default-gateway OOB_DEFAULT_GATEWAY
-                            The APIC Out-Of-Band default gateway to enter into the
-                            APIC setup script.
-      -oi OOB_IP_ADDRESS, --oob-ip-address OOB_IP_ADDRESS
-                            The APIC Out-Of-Band IP address to enter into the APIC
-                            setup script.
-      -sim, --simulator     This flag identifies the APIC as a simulator.
-      -sp {Y,n}, --strong-passwords {Y,n}
-                            Strong password option to enter into the APIC setup
-                            script.
-      -t TEP_ADDRESS_POOL, --tep-address-pool TEP_ADDRESS_POOL
-                            The TEP address pool to enter into the APIC setup
-                            script.
-      -v, --verbose         Enable debugging and be verbose.
+   optional arguments:
+       -h, --help            show this help message and exit
+       -ap APIC_ADMIN_PASSWORD, --apic_admin_password APIC_ADMIN_PASSWORD
+                             The APIC admin user password to enter into the APIC
+                             setup script.
+       -b BD_MC_ADDRESSES, --bd-mc-addresses BD_MC_ADDRESSES
+                             The Bridge Domain Multicast address range to enter
+                             into the APIC setup script.
+       -cna CONTROLLER_NAME, --controller-name CONTROLLER_NAME
+                             The controller name to enter into the APIC setup
+                             script.
+       -cnu CONTROLLER_NUMBER, --controller_number CONTROLLER_NUMBER
+                             The controller number (id) to enter into the APIC
+                             setup script.
+       -cp CIMC_PASSWORD, --cimc_password CIMC_PASSWORD
+                             CIMC password
+       -cu CIMC_USERNAME, --cimc_username CIMC_USERNAME
+                             CIMC username
+       -i INI_FILE, --ini-file INI_FILE
+                             Use an ini file to find parameters to provision an
+                             APIC.
+       -is {auto,10baseT/Half,10baseT/Full,100baseT/Half,100baseT/Full,1000baseT/Full}, --int-speed {auto,10baseT/Half,10baseT/Full,100baseT/Half,100baseT/Full,1000baseT/Full}
+       -iv INFRA_VLAN_ID, --infra-vlan-id INFRA_VLAN_ID
+                             The infra vlan id to enter into the APIC setup script.
+       -f FABRIC_NAME, --fabric-name FABRIC_NAME
+                             The fabric name to enter into the APIC setup script.
+       -nc NUMBER_OF_CONTROLLERS, --number-of-controllers NUMBER_OF_CONTROLLERS
+                             The number of controllers to enter into the APIC setup
+                             script.
+       -od OOB_DEFAULT_GATEWAY, --oob-default-gateway OOB_DEFAULT_GATEWAY
+                             The APIC Out-Of-Band default gateway to enter into the
+                             APIC setup script.
+       -oi OOB_IP_ADDRESS, --oob-ip-address OOB_IP_ADDRESS
+                             The APIC Out-Of-Band IP address to enter into the APIC
+                             setup script.
+       -sim, --simulator     This flag identifies the APIC as a simulator.
+       -sp {Y,n}, --strong-passwords {Y,n}
+                             Strong password option to enter into the APIC setup
+                             script.
+       -t TEP_ADDRESS_POOL, --tep-address-pool TEP_ADDRESS_POOL
+                             The TEP address pool to enter into the APIC setup
+                             script.
+       -v, --verbose         Enable debugging and be verbose.
 
 INI file options
 ----------------
 
-The following is a **recommended** ini file:
+The following is a **recommended** ini file::
 
     ; These default settings can be modified to allow for different defaults for your environment.
     ; You can override these defaults in sections for specific controllers.
@@ -130,7 +130,7 @@ The following is a **recommended** ini file:
     strong_passwords = Y
     ; A default admin password.  Usually the individual apic configs will override this.
     apic_admin_password = p@s$w0rd
-
+     
     ; Sections are defined by the cimc ip address, items defined in sections override the default items
     [172.16.176.191]
     fabric_name = 176_fabric3
@@ -139,7 +139,7 @@ The following is a **recommended** ini file:
     oob_ip_address = 172.16.176.192/24
     oob_default_gateway = 172.16.176.1
     apic_admin_password = Cisco321!
-
+    
     ; Multiple CIMC's can be defined in the ini file
     [172.16.176.193]
     fabric_name = 176_fabric3
@@ -148,7 +148,7 @@ The following is a **recommended** ini file:
     oob_ip_address = 172.16.176.194/24
     oob_default_gateway = 172.16.176.1
     ; apic password is not needed for controllers 2 and 3
-
+    
     ; Multiple CIMC's can be defined in the ini file
     [172.16.176.195]
     fabric_name = 176_fabric3
