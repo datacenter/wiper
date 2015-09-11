@@ -16,7 +16,7 @@ Easy install from pypi::
 Option 2
 ^^^^^^^^
 
-Clone the repo and run setup.py to install:"
+Clone the repo and run setup.py to install::
 
     git clone https://github.com/datacenter/wiper.git
     cd wiper
