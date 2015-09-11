@@ -199,7 +199,7 @@ not needed for each controller.
 
 Wiper only runs against one CIMC at a time though so in order to wipe/provision three APIC's you
 would need to run wiper three times and each time provide which CIMC you are running against.  For
-example:
+example::
 
     wiper -i sample.ini 172.16.176.191
     wiper -i sample.ini 172.16.176.193
