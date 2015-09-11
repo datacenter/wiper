@@ -3,19 +3,55 @@ wiper
 
 Wipe and reprovision a Cisco ACI APIC over CIMC Serial Over LAN.
 
-Options for options
--------------------
+Options for config arguments
+----------------------------
 
 Options can be set via the CLI as command line arguments or in an ini file that is specified with
-the -i/--ini-file option.  The order of precedance is as follows:
+the -i/--ini-file option.  The order of precedence is as follows:
 
 1. CLI options override all options set elsewhere.
 2. INI file options for a specific APIC override default options specified in the INI file.
 3. INI file options in a DEFAULT section will be used as a last resort if that option is not
    specified elsewhere.
+4. Any missing options will result in the script not running.
 
 Because there are so many required options it is highly recommended that options be set in an INI
 file.
+
+The following is a table of required config arguments:
+
+    +--------------------------+---------------+-----------------------+
+    |       **Long CLI**       | **Short CLI** | **INI File**          |
+    |        **Option**        |  **Option**   |  **Option**           |
+    +--------------------------+---------------+-----------------------+
+    |  --controller-number     |     -cnu      | controller_number     |
+    +--------------------------+---------------+-----------------------+
+    |  --strong-passwords      |     -sp       | strong_passwords      |
+    +--------------------------+---------------+-----------------------+
+    |  --infra-vlan-id         |     -iv       | infra_vlan_id         |
+    +--------------------------+---------------+-----------------------+
+    |  --fabric-name           |     -f        | fabric_name           |
+    +--------------------------+---------------+-----------------------+
+    |  --cimc-username         |     -cu       | cimc_username         |
+    +--------------------------+---------------+-----------------------+
+    |  --controller-name       |     -cna      | controller_name       |
+    +--------------------------+---------------+-----------------------+
+    |  --apic-admin-password   |     -ap       | apic_admin_password   |
+    +--------------------------+---------------+-----------------------+
+    |  --bd-mc-addresses       |     -b        | bd_mc_addresses       |
+    +--------------------------+---------------+-----------------------+
+    |  --cimc-password         |     -cp       | cimc_password         |
+    +--------------------------+---------------+-----------------------+
+    |  --oob-default-gateway   |     -od       | oob_default_gateway   |
+    +--------------------------+---------------+-----------------------+
+    |  --int-speed             |     -is       | int_speed             |
+    +--------------------------+---------------+-----------------------+
+    |  --oob-ip-address        |     -oi       | oob_ip_address        |
+    +--------------------------+---------------+-----------------------+
+    |  --tep-address-pool      |     -t        | tep_address_pool      |
+    +--------------------------+---------------+-----------------------+
+    |  --number-of-controllers |     -nc       | number_of_controllers |
+    +--------------------------+---------------+-----------------------+
 
 CLI Options
 -----------
