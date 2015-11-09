@@ -132,11 +132,22 @@ from transitions import Machine
 
 
 class WiperApicInteract(SSHClientInteraction):
-    def __init__(self, client, timeout=60, newline='\r', buffer_size=1024,
-                 display=False, type=''):
-        self.type = type
-        SSHClientInteraction.__init__(self, client, timeout, newline, buffer_size,
-                 display)
+    def __init__(self, client, **kwargs):
+        if 'timeout' not in kwargs or kwargs['timeout'] is None:
+            kwargs['timeout'] = 60
+        if 'newline' not in kwargs or kwargs['newline'] is None:
+            kwargs['newline'] = '\r'
+        if 'buffer_size' not in kwargs or kwargs['buffer_size'] is None:
+            buffer_size = 1024
+        if 'display' not in kwargs or kwargs['display'] is None:
+            display = False
+        if 'conn_type' not in kwargs or kwargs['conn_type'] is None:
+            self.conn_type = ''
+        else:
+            self.conn_type = kwargs['conn_type']
+        SSHClientInteraction.__init__(self, client, kwargs['timeout'],
+                                      kwargs['newline'], kwargs['buffer_size'],
+                                      kwargs['display'])
 
 
 class ProvisionApic(Machine):
@@ -341,11 +352,11 @@ class ProvisionApic(Machine):
             sys.exit(-1)
 
         self.cimc_interact = WiperApicInteract(self.cimc_client, timeout=10, display=self.verbose,
-                                           type='cimc')
+                                               conn_type='cimc')
         self.cimc_interact.send('\n')
 
         self.apic_interact = WiperApicInteract(self.apic_client, timeout=10, display=self.verbose,
-                                           type='apic')
+                                               conn_type='apic')
         self.apic_interact.send('\n')
 
         try:
@@ -659,7 +670,7 @@ class ProvisionApic(Machine):
 
             cmd is a string and prompt could be a string or a list of strings.
         """
-        self.log("Sending a bulk set of commands to {0}".format(interact.type))
+        self.log("Sending a bulk set of commands to {0}".format(interact.conn_type))
         for cmd_prompt in cmd_list:
             if len(cmd_prompt) == 2:
                 self.do_cmd(cmd_prompt[0], cmd_prompt[1], interact,
@@ -674,12 +685,14 @@ class ProvisionApic(Machine):
                 raise ValueError("Invalid command tuple do_cmds {0}".format(
                     cmd_prompt))
 
-    def do_cmd(self, cmd, prompt, interact, clear_outputs=True, timeout=10):
+    def do_cmd(self, cmd, prompt, interact, **kwargs):
         """ Do a command and expect a prompt.
 
         Args:
             cmd (str): the command to run
             prompt (str or list): the prompt to expect
+            clear_outputs (bool): TODO
+            timeout (int): The time to wait before timing out the command
 
         Raises:
             Exception: Could raise an exception on send or expect.
@@ -687,6 +700,11 @@ class ProvisionApic(Machine):
         Returns:
             int: The index in the prompts list that matched.
         """
+        if 'clear_outputs' not in kwargs or kwargs['clear_outputs'] is None:
+            clear_outputs = True
+        if 'timeout' not in kwargs or kwargs['timeout'] is None:
+            timeout = 10
+
         if not interact:
             raise RuntimeError("Paramiko-expect interact not initialized yet")
         if clear_outputs is True:
@@ -710,7 +728,7 @@ class ProvisionApic(Machine):
     def clear_interact_output(self, interact):
         if not interact:
             raise RuntimeError("Paramiko-expect interact not initialized yet")
-        self.log("Clearing interact output for - {0}".format(interact.type), debug_only=True)
+        self.log("Clearing interact output for - {0}".format(interact.conn_type), debug_only=True)
         interact.current_output = ''
         interact.current_output_clean = ''
 
