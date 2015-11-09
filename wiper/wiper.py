@@ -138,9 +138,9 @@ class WiperApicInteract(SSHClientInteraction):
         if 'newline' not in kwargs or kwargs['newline'] is None:
             kwargs['newline'] = '\r'
         if 'buffer_size' not in kwargs or kwargs['buffer_size'] is None:
-            buffer_size = 1024
+            kwargs['buffer_size'] = 1024
         if 'display' not in kwargs or kwargs['display'] is None:
-            display = False
+            kwargs['display'] = False
         if 'conn_type' not in kwargs or kwargs['conn_type'] is None:
             self.conn_type = ''
         else:
