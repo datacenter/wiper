@@ -3,6 +3,30 @@ wiper
 
 Wipe and reprovision a Cisco ACI APIC over CIMC Serial Over LAN.
 
+Install
+-------
+
+Option 1
+^^^^^^^^
+
+Easy install from pypi::
+
+    easy_install wiper
+
+Option 2
+^^^^^^^^
+
+Clone the repo and run setup.py to install::
+
+    git clone https://github.com/datacenter/wiper.git
+    cd wiper
+    python setup.py install
+
+Run
+---
+
+Once installed, this package adds both `apic_wiper` and `wiper` to the bin directory for python install/virtual environment.
+
 Options for config arguments
 ----------------------------
 
