@@ -413,9 +413,9 @@ class ProvisionApic(Machine):
             r'.*:~> ': self.apic_prompt_detected,
             r'.*Press any key to continue....*': self.press_any_key,
             r'.*Enter the fabric name \[.*\]:.*': self.enter_fabric_name,
-            r'.*Enter the number of controllers in the fabric \(1-9\) \[[0-9]+]:.*':
+            r'.*Enter the number of controllers in the fabric \(1-[1-5]\) \[[0-9]+]:.*':
                 self.enter_num_ctrlrs,
-            r'.*Enter the controller ID \(1-3\) \[[0-9]+\]:.*': self.enter_ctrlr_id,
+            r'.*Enter the controller ID \(1-[1-5]\) \[[0-9]+\]:.*': self.enter_ctrlr_id,
             r'.*Enter the controller name \[.*\]:.*': self.enter_ctrlr_name,
             r'.*Enter address pool for TEP addresses \[.*\]:.*': self.enter_tep_addr_pool,
             r'.*Enter the VLAN ID for infra network \(1-4094\).*:.*': self.enter_infra_vlan_id,
@@ -544,7 +544,7 @@ class ProvisionApic(Machine):
         self.enter_num_ctrlrs()
 
     def on_enter_provide_number_ctrlrs(self):
-        prompt = r'.*Enter the controller ID \(1-3\) \[[0-9]+\]:.*'
+        prompt = r'.*Enter the controller ID \(1-[1-5]\) \[[0-9]+\]:.*'
         self.log("Setting number of controllers to '{0}' on the APIC.".format(self.num_controllers),
                  print_only=True)
         self.do_cmd(self.num_controllers, prompt, self.apic_interact)
